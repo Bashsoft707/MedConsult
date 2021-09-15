@@ -1,0 +1,26 @@
+.tab-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.tab-heading {
+  margin-right: 3rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  line-height: 1.7;
+}
+
+.tab-heading:hover {
+  color: #261362;
+  border-bottom: 1px solid #261362;
+  border-width: 3px;
+}
+
+@media (min-width: 428px) and (max-width: 919px) {
+  .tab-heading {
+    margin-right: 1.5rem;
+    font-size: 1rem;
+  }
+}

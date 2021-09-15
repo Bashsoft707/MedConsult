@@ -1,6 +1,6 @@
 import React from 'react'
 import { GiWeight } from "react-icons/gi";
-import { IoBagAdd, IoMan, IoCheckmarkCircleSharp } from "react-icons/io5";
+import { IoMan, IoCheckmarkCircleSharp } from "react-icons/io5";
 import { RiMoonClearFill } from "react-icons/ri";
 import { FaHeartbeat } from "react-icons/fa";
 import './SubTabs.css'

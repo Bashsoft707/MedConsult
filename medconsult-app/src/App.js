@@ -1,7 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Register from "./Components/Register";
+import Login from "./Components/Login";
+import './App.css';
+import HealthTips from './Components/HealthTips/HealthTips';
+import Profile from './Page/Profile/Profile';
 
 function App() {
   return (
@@ -9,6 +12,8 @@ function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path='/profile' component={Profile} />
+        <Route exact path='/healthtips' component={HealthTips} />
       </Switch>
     </Router>
   );

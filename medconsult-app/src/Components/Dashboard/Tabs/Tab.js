@@ -5,16 +5,16 @@ import Features from "./SubTabs/Features";
 import "./Tabs.css";
 
 const Tab = () => {
-    const [tab, setTab] = useState(Info);
+    const [allTab, setAllTab] = useState(Info);
   return ( 
     <div className="tab">
       <div className="tab-header">
-        <div className="tab-heading">Info</div>
-        <div className="tab-heading">Diet</div>
-        <div className="tab-heading">Feature</div>
+        <div className="tab-heading" onClick={() => setAllTab(Info)}>Info</div>
+        <div className="tab-heading" onClick={() => setAllTab(Diet)}>Diet</div>
+        <div className="tab-heading" onClick={() => setAllTab(Features)}>Feature</div>
       </div>
       <div> 
-        {tab}
+        {allTab}
       </div>
     </div>
   );

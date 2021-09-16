@@ -47,9 +47,10 @@ const RegisterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch('https://demo-api.pneumahealth.co/patients/', options)
+    .then(res => res.json())
     .then((res) => {
-      localStorage.setItem('data', res.data.data)
-      console.log(res)
+      localStorage.setItem('name', res.data.id)
+      console.log(res.data)
       history.push("/profile")
     })
     .catch((error) => {
@@ -222,4 +223,4 @@ const Status = styled.div`
   }
 `;
 
-export default Register
+export default RegisterForm;

@@ -22,6 +22,22 @@ const Profile = () => {
 
   const [ allTips, setAllTips ] = useState([])
 
+  const [user, setUser] = useState({})
+
+  const options = {
+    method: 'GET',
+    headers: {Accept: 'application/json', Authorization: 'Bearer cwzmajfp2v0lf0lo8eb5'}
+  };
+  useEffect(() => {
+    fetch('https://demo-api.pneumahealth.co/patients/cmcacwepy8weero', options)
+      .then(response => response.json())
+      .then(response => {
+        setUser(response.data)
+        console.log(user)
+      })
+      .catch(err => console.error(err));
+  }, [])
+
   useEffect(() => {
       fetch('https://demo-api.pneumahealth.co/telehealth/tips')
     .then(response => response.json())
@@ -61,9 +77,9 @@ const Profile = () => {
             <span className="tooltip">Dashboard</span>
           </li>
           <li>
-            <a href="#" onClick={() => setTab(User)}>
+            <a href="#" onClick={() => setTab(<User user={user} />)}>
               <span className="icons">
-                <BiChat />
+                <BiUserPlus />
               </span>
               <span className="links_name">User</span>
             </a>

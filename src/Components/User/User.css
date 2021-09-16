@@ -1,4 +1,4 @@
-/* :root {
+:root {
     --blue: #5e72e4;
     --indigo: #5603ad;
     --purple: #8965e0;
@@ -61,17 +61,6 @@
   nav,
   section {
     display: block;
-  }
-  
-  body {
-    font-family: Open Sans, sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    margin: 0;
-    text-align: left;
-    color: #525f7f;
-    background-color: #f8f9fe;
   }
   
   [tabindex='-1']:focus {
@@ -2013,4 +2002,4 @@
   
   #navbar .navbar {
     margin-bottom: 20px;
-  } */
+  }

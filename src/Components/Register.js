@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import bgImg from "../assets/bg.png";
+import bgImg from "../assets/med.jpg";
 import RegisterForm from "./RegisterForm";
 import Main from "./Main";
 

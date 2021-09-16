@@ -53,7 +53,7 @@ const User = ({user}) => {
                     {user.first_name}<span class="font-weight-light">{user.weight}</span>
                   </h3>
                   <div class="h5 font-weight-300">
-                    <i class="ni location_pin mr-2"></i>Bucharest, Romania
+                    <i class="ni location_pin mr-2"></i>{user.address}
                   </div>
                   <div class="h5 mt-4">
                     <i class="ni business_briefcase-24 mr-2"></i>Solution
@@ -63,13 +63,6 @@ const User = ({user}) => {
                     <i class="ni education_hat mr-2"></i>University of Computer
                     Science
                   </div>
-                  <hr class="my-4" />
-                  <p>
-                    Ryan — the name taken by Melbourne-raised, Brooklyn-based
-                    Nick Murphy — writes, performs and records all of his own
-                    music.
-                  </p>
-                  <a href="#">Show more</a>
                 </div>
               </div>
             </div>
@@ -101,7 +94,7 @@ const User = ({user}) => {
                             class="form-control-label"
                             for="input-username"
                           >
-                            Username
+                            {user.first_name}
                           </label>
                           <input
                             type="text"
@@ -121,7 +114,7 @@ const User = ({user}) => {
                             type="email"
                             id="input-email"
                             class="form-control form-control-alternative"
-                            placeholder="jesse@example.com"
+                            input={user.email}
                           />
                         </div>
                       </div>
@@ -140,7 +133,7 @@ const User = ({user}) => {
                             id="input-first-name"
                             class="form-control form-control-alternative"
                             placeholder="First name"
-                            value="Lucky"
+                            value={user.first_name}
                           />
                         </div>
                       </div>
@@ -157,7 +150,7 @@ const User = ({user}) => {
                             id="input-last-name"
                             class="form-control form-control-alternative"
                             placeholder="Last name"
-                            value="Jesse"
+                            value={user.last_name}
                           />
                         </div>
                       </div>
@@ -178,7 +171,7 @@ const User = ({user}) => {
                             id="input-address"
                             class="form-control form-control-alternative"
                             placeholder="Home Address"
-                            value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+                            value={user.address}
                             type="text"
                           />
                         </div>
@@ -195,7 +188,7 @@ const User = ({user}) => {
                             id="input-city"
                             class="form-control form-control-alternative"
                             placeholder="City"
-                            value="New York"
+                            value={user.city}
                           />
                         </div>
                       </div>
@@ -209,7 +202,7 @@ const User = ({user}) => {
                             id="input-country"
                             class="form-control form-control-alternative"
                             placeholder="Country"
-                            value="United States"
+                            value={user.country}
                           />
                         </div>
                       </div>
@@ -223,6 +216,7 @@ const User = ({user}) => {
                             id="input-postal-code"
                             class="form-control form-control-alternative"
                             placeholder="Postal code"
+                            value={user.postal_code}
                           />
                         </div>
                       </div>

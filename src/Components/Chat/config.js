@@ -5,7 +5,7 @@ import HealthcareOptions from "./HealthCareOptions";
 import LinkList from "./LinkList";
 
 const config = {
-  botName: "MedicConsult Bot",
+  botName: "MedConsult Bot",
 initialMessages: [
     createChatBotMessage("Hi, I'm here to help. What can I help you 		with?", {
       widget: "healthcareOptions",

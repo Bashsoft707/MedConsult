@@ -53,7 +53,7 @@ const User = ({user}) => {
                     {user.first_name}<span class="font-weight-light">{user.weight}</span>
                   </h3>
                   <div class="h5 font-weight-300">
-                    <i class="ni location_pin mr-2"></i>{user.address}
+                    <i class="ni location_pin mr-2"></i>Bucharest, Romania
                   </div>
                   <div class="h5 mt-4">
                     <i class="ni business_briefcase-24 mr-2"></i>Solution
@@ -94,7 +94,7 @@ const User = ({user}) => {
                             class="form-control-label"
                             for="input-username"
                           >
-                            {user.first_name}
+                            Username
                           </label>
                           <input
                             type="text"
@@ -114,7 +114,7 @@ const User = ({user}) => {
                             type="email"
                             id="input-email"
                             class="form-control form-control-alternative"
-                            input={user.email}
+                            placeholder={user.email}
                           />
                         </div>
                       </div>
@@ -171,7 +171,7 @@ const User = ({user}) => {
                             id="input-address"
                             class="form-control form-control-alternative"
                             placeholder="Home Address"
-                            value={user.address}
+                            value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
                             type="text"
                           />
                         </div>
@@ -188,7 +188,7 @@ const User = ({user}) => {
                             id="input-city"
                             class="form-control form-control-alternative"
                             placeholder="City"
-                            value={user.city}
+                            value="New York"
                           />
                         </div>
                       </div>
@@ -202,7 +202,7 @@ const User = ({user}) => {
                             id="input-country"
                             class="form-control form-control-alternative"
                             placeholder="Country"
-                            value={user.country}
+                            value="United States"
                           />
                         </div>
                       </div>
@@ -216,25 +216,9 @@ const User = ({user}) => {
                             id="input-postal-code"
                             class="form-control form-control-alternative"
                             placeholder="Postal code"
-                            value={user.postal_code}
                           />
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <hr class="my-4" />
-                  <h6 class="heading-small text-muted mb-4">About me</h6>
-                  <div class="pl-lg-4">
-                    <div class="form-group focused">
-                      <label>About Me</label>
-                      <textarea
-                        rows="4"
-                        class="form-control form-control-alternative"
-                        placeholder="A few words about you ..."
-                      >
-                        A beautiful Dashboard for Bootstrap 4. It is Free and
-                        Open Source.
-                      </textarea>
                     </div>
                   </div>
                 </form>

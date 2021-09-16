@@ -18,18 +18,19 @@ import "./Profile.css";
 
 const Profile = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [tab, setTab] = useState(<Dashboard />);
+  const [user, setUser] = useState({})
+  const [tab, setTab] = useState(<Dashboard user={user} />);
 
   const [ allTips, setAllTips ] = useState([])
 
-  const [user, setUser] = useState({})
+  const id = localStorage.getItem('name');
 
   const options = {
     method: 'GET',
     headers: {Accept: 'application/json', Authorization: 'Bearer cwzmajfp2v0lf0lo8eb5'}
   };
   useEffect(() => {
-    fetch('https://demo-api.pneumahealth.co/patients/cmcacwepy8weero', options)
+    fetch(`https://demo-api.pneumahealth.co/patients/${id}`, options)
       .then(response => response.json())
       .then(response => {
         setUser(response.data)
@@ -68,7 +69,7 @@ const Profile = () => {
             <span className="tooltip">Search</span>
           </li>
           <li>
-            <a href="" onClick={() => setTab(Dashboard)}>
+            <a href="" onClick={() => setTab(<Dashboard user={user} />)}>
               <span className="icons">
                 <MdDashboard />
               </span>
@@ -126,7 +127,9 @@ const Profile = () => {
           </li>
         </ul>
       </div>
-      <div className="home-section">{tab}</div>
+      <div className="home-section">
+        {tab}
+      </div>
     </>
   );
 };

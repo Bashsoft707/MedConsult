@@ -6,13 +6,12 @@ import { FaHeartbeat } from "react-icons/fa";
 import './SubTabs.css'
 
 const Info = () => {
-    const id = localStorage.getItem('name')
     return (
         <div className='grid'>
             <div className='grid-items'>
                 <div className='grid-icon'><GiWeight /></div>
                 <div className='grid-content'>
-                    <h4>{id} kg</h4>
+                    <h4> kg</h4>
                     <p>Weight</p>   
                 </div>
             </div>

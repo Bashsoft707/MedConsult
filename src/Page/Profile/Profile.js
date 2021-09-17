@@ -96,7 +96,7 @@ const Profile = () => {
             <span className="tooltip">Health Tips</span>
           </li>
           <li>
-            <a href="#" onClick={() => setTab(Chat)}>
+            <a href="https://tawk.to/MedConsult" onClick={() => setTab(Chat)}>
               <span className="icons">
                 <BiChat />
               </span>

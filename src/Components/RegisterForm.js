@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
+import app from "../utils/firebase";
 // import Input from "./Input";
 
 const RegisterForm = () => {
@@ -10,82 +11,121 @@ const RegisterForm = () => {
     first_name: "",
     last_name: "",
     email: "",
-    password: ""
-  })
+    password: "",
+  });
 
   const history = useHistory();
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value})
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const auth = app.auth();
+  const db = app.firestore();
 
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer cwzmajfp2v0lf0lo8eb5'
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer cwzmajfp2v0lf0lo8eb5",
     },
     body: JSON.stringify({
       first_name: formData.first_name,
       last_name: formData.last_name,
       email: formData.email,
-      phone: '09009900770',
-      dob: '12/12/1995',
-      gender: 'female',
+      phone: "09009900770",
+      dob: "12/12/1995",
+      gender: "female",
       address: {
-        street_line_one: 'No, 20 Aso Villaa',
-        street_line_two: 'Off Mambila Barracksa',
-        post_code: '900991',
-        city: 'Abuja',
-        state: 'FCT',
-        country: 'Nigeria'
-      }
-    })
+        street_line_one: "No, 20 Aso Villaa",
+        street_line_two: "Off Mambila Barracksa",
+        post_code: "900991",
+        city: "Abuja",
+        state: "FCT",
+        country: "Nigeria",
+      },
+    }),
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch('https://demo-api.pneumahealth.co/patients/', options)
-    .then(res => res.json())
-    .then((res) => {
-      localStorage.setItem('name', res.data.id)
-      console.log(res.data)
-      history.push("/profile")
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-    console.log(formData)
-  }
+    fetch("https://demo-api.pneumahealth.co/patients/", options)
+      .then((res) => res.json())
+      .then((res) => {
+        localStorage.setItem("name", res.data.id);
+        console.log(res.data);
+        history.push("/profile");
+      })
+      .then(() => {
+        const response = await auth.createUserWithEmailAndPassword(email, password);
+        const user = response.user;
+        await db.collection("patients").add({
+          uid: user.uid,
+          data: res.data,
+          authProvider: "local",
+          email,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log(formData);
+  };
   return (
     <Container>
       <LogoWrapper>
         <img src={logo} alt="" />
-        <h3>
-          MEDCONSULT
-        </h3>
+        <h3>MEDCONSULT</h3>
       </LogoWrapper>
       <Form onSubmit={handleSubmit}>
         <h3>Sign Up</h3>
         <FormContainer>
-          <Input name="first_name" type="text" placeholder="FirstName" value={formData.first_name} onChange={handleChange} required  />
+          <Input
+            name="first_name"
+            type="text"
+            placeholder="FirstName"
+            value={formData.first_name}
+            onChange={handleChange}
+            required
+          />
           <Status />
         </FormContainer>
         <FormContainer>
-        <Input name="last_name" type="text" placeholder="LastName" value={formData.last_name} onChange={handleChange} required />
+          <Input
+            name="last_name"
+            type="text"
+            placeholder="LastName"
+            value={formData.last_name}
+            onChange={handleChange}
+            required
+          />
           <Status />
         </FormContainer>
         <FormContainer>
-        <Input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+          <Input
+            name="email"
+            type="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
           <Status />
         </FormContainer>
         <FormContainer>
-        <Input name="password" type="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+          <Input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
           <Status />
         </FormContainer>
         <FormContainer>
-        <Input type="password" placeholder="Confrim Password" required />
+          <Input type="password" placeholder="Confrim Password" required />
           <Status />
         </FormContainer>
         <button type="submit">Sign Up</button>

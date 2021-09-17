@@ -20,10 +20,14 @@ const LoginForm = () => {
     setFormData({ ...formData, [name]: value})
   }
 
-  const handleSubmit = (email, password) => {
+  const handleSubmit = async (email, password) => {
     try {
-      await auth.signInWithEmailAndPassword(email, password);
-      history.push("/profile")
+      await auth.signInWithEmailAndPassword(email, password)
+      .then((userDetails) => {
+        const userData = userDetails.user.data;
+        console.log(userData)
+        history.push("/profile")
+      })
     } catch (err) {
       console.error(err);
       alert(err.message);

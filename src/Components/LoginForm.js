@@ -3,6 +3,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
+import app from "../utils/firebase";
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
@@ -10,21 +11,23 @@ const LoginForm = () => {
     password: ""
   })
 
+  const auth = app.auth();
+  const db = app.firestore();
+
   const history = useHistory();
 
   const handleChange = ({ target: {name, value} }) => {
     setFormData({ ...formData, [name]: value})
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post("", formData)
-    .then(() => {
+  const handleSubmit = (email, password) => {
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
       history.push("/profile")
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
   }
   return (
     <Container>
@@ -34,7 +37,7 @@ const LoginForm = () => {
           MEDCONSULT
         </h3>
       </LogoWrapper>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit(formData.email, formData.password)}>
         <h3>Sign In</h3>
         <FormContainer>
         <Input name="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} required />

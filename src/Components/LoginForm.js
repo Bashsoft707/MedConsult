@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.svg";
@@ -22,7 +21,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (email, password) => {
     try {
-      await auth.signInWithEmailAndPassword(email, password)
+      await auth.signInWithEmailAndPassword(auth, email, password)
       .then((userDetails) => {
         const userData = userDetails.user.data;
         console.log(userData)

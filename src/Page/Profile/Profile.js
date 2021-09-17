@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Dashboard from "../../Components/Dashboard/Dashboard";
-import Chat from "../../Components/Chat/Chat";
+
 import HealthTips from "../../Components/HealthTips/HealthTips";
 import User from "../../Components/User/User";
 import { FiMenu } from "react-icons/fi";
@@ -96,7 +96,7 @@ const Profile = () => {
             <span className="tooltip">Health Tips</span>
           </li>
           <li>
-            <a href="https://tawk.to/MedConsult" onClick={() => setTab(Chat)}>
+            <a href="https://tawk.to/MedConsult" onClick={() => setTab()}>
               <span className="icons">
                 <BiChat />
               </span>

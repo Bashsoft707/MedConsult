@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Dashboard from "../../Components/Dashboard/Dashboard";
-import Chat from "../../Components/Chat/Chat";
+// import Chat from "../../Components/Chat/Chat";
 import HealthTips from "../../Components/HealthTips/HealthTips";
 import User from "../../Components/User/User";
+import ConsultForm from '../../Components/ConsultForm/ConsultForm';
 import { FiMenu } from "react-icons/fi";
-import { FcPlus, FcSupport } from "react-icons/fc";
+import { FcPlus } from "react-icons/fc";
 import { MdDashboard } from "react-icons/md";
 import {
   BiChat,
@@ -12,6 +13,7 @@ import {
   BiSearch,
   BiMenuAltRight,
   BiLogOut,
+  BiPlusMedical
 } from "react-icons/bi";
 import { FaNotesMedical } from "react-icons/fa";
 import "./Profile.css";
@@ -96,7 +98,7 @@ const Profile = () => {
             <span className="tooltip">Health Tips</span>
           </li>
           <li>
-            <a href="#" onClick={() => setTab(Chat)}>
+            <a href="https://tawk.to/MedConsult">
               <span className="icons">
                 <BiChat />
               </span>
@@ -105,13 +107,13 @@ const Profile = () => {
             <span className="tooltip">Chats</span>
           </li>
           <li>
-            <a href="#">
+            <a href="#" onClick={() => setTab(ConsultForm)}>
               <span className="icons">
-                <FcSupport />
+                <BiPlusMedical />
               </span>
-              <span className="links_name">Support</span>
+              <span className="links_name">Consult Form</span>
             </a>
-            <span className="tooltip">Support</span>
+            <span className="tooltip">Consult Form</span>
           </li>
           <li className="profile">
             <div className="profile-details">

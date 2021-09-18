@@ -14,7 +14,7 @@ const HealthTips = ({allTips}) => {
     return (
         <>
             <div className="text">Health tips</div>
-            <div className="row">
+            <div className="row-container">
                 {allTips.data && allTips.data.map((tips, index) => {
                 return (
                     <div className="col-md-4" key={index}>

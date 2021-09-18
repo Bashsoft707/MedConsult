@@ -22,7 +22,7 @@ const Container = styled.div`
   h1 {
     font-size: 65px;
     font-weight: 900;
-    color: #343434;
+    color: red;
 
     @media (max-width: 900px) {
       display: none;

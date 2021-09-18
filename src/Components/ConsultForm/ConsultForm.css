@@ -1,6 +1,28 @@
 * {
     box-sizing: border-box;
   }
+
+  .consult-form {
+      padding: 1rem;
+  }
+
+  .consult-form h2 {
+      margin-bottom: 1rem;
+  }
+
+  .consult-form-title {
+      display: flex;
+      margin-bottom: 2rem;
+  }
+
+  .consult-form h3 {
+      height: 60px;
+      padding: .5rem;
+      text-align: center;
+      border: 1px solid black;
+      margin: 0 .5rem;
+      cursor: pointer;
+  }
   
   input[type=text], select, textarea {
     width: 100%;
@@ -60,4 +82,5 @@
       width: 100%;
       margin-top: 0;
     }
+    
   }

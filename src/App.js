@@ -6,13 +6,13 @@ import Register from "./Components/Register";
 import Profile from './Page/Profile/Profile';
 
 function App() {
+
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={Register} />
         <Route exact path="/register" component={Register} />
         <Route exact path='/profile' component={Profile} />
-        
       </Switch>
     </Router>
   );

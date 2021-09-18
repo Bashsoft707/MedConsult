@@ -71,7 +71,7 @@ const Profile = () => {
             <span className="tooltip">Search</span>
           </li>
           <li>
-            <a href="" onClick={() => setTab(<Dashboard user={user} />)}>
+            <a href="#dashboard" onClick={() => setTab(<Dashboard user={user} />)}>
               <span className="icons">
                 <MdDashboard />
               </span>
@@ -80,7 +80,7 @@ const Profile = () => {
             <span className="tooltip">Dashboard</span>
           </li>
           <li>
-            <a href="#" onClick={() => setTab(<User user={user} />)}>
+            <a href="#user" onClick={() => setTab(<User user={user} />)}>
               <span className="icons">
                 <BiUserPlus />
               </span>
@@ -89,7 +89,7 @@ const Profile = () => {
             <span className="tooltip">User</span>
           </li>
           <li>
-            <a href="#" onClick={() => setTab(<HealthTips allTips={allTips} />)}>
+            <a href="#healthtips" onClick={() => setTab(<HealthTips allTips={allTips} />)}>
               <span className="icons">
                 <FaNotesMedical />
               </span>
@@ -107,7 +107,7 @@ const Profile = () => {
             <span className="tooltip">Chats</span>
           </li>
           <li>
-            <a href="#" onClick={() => setTab(ConsultForm)}>
+            <a href="#consultform" onClick={() => setTab(ConsultForm)}>
               <span className="icons">
                 <BiPlusMedical />
               </span>
@@ -117,10 +117,10 @@ const Profile = () => {
           </li>
           <li className="profile">
             <div className="profile-details">
-              <img src="" alt="" />
+              <img src={user.image} alt={user.image} />
               <div className="name_job">
-                <div className="name">Prem Shahi</div>
-                <div className="job">Web designer</div>
+                <div className="name">{user.first_name} {user.last_name}</div>
+                <div className="job">{user.email}</div>
               </div>
             </div>
             <span className="icons" id="log_out">

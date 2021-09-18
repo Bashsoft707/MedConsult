@@ -10,7 +10,7 @@ const ConsultForm = () => {
       </div>
 
       <div class="container">
-        <form action="/action_page.php">
+        <form>
           <div class="row">
             <div class="col-25">
               <label for="fname"> How long have you had this?</label>

@@ -34,7 +34,7 @@
 }
 
 @media (max-width: 475px) {
-    .row {
+    .row-container {
         display: flex;
         flex-direction: column;
     }

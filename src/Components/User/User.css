@@ -1205,7 +1205,7 @@
   }
   
   .mt--7 {
-    margin-top: -6rem !important;
+    margin-top: 5rem !important;
   }
   
   .pt-0 {
@@ -1998,8 +1998,23 @@
     .btn {
       margin-bottom: 10px;
     }
+
+    .card-profile-stats>div  {
+      margin: 0;
+      padding: .45rem;
+    }
+  
+    .card-profile-stats>div .heading {
+      font-size: .8rem;
+    }
+  
+    .card-profile-stats>div .description {
+      font-size: .8rem;
+    }
   }
   
   #navbar .navbar {
     margin-bottom: 20px;
   }
+
+  
